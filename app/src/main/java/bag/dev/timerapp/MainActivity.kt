@@ -2,6 +2,7 @@ package bag.dev.timerapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import bag.dev.timerapp.databinding.ActivityMainBinding
 import java.util.*
 
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener {
             if (!isRun){
+                binding.progressBar.visibility= View.VISIBLE
                 var time = 20
                 isRun=true
                 val timer = Timer()
@@ -41,6 +43,7 @@ class MainActivity : AppCompatActivity() {
                             if (time==0){
                                 timer.cancel()
                                 isRun = false
+                                binding.progressBar.visibility= View.INVISIBLE
                             }
 //                            binding.progressBar2.progress++
 //                            if (binding.progressBar2.progress==100){
